@@ -1,0 +1,26 @@
+{
+  "name": "tore",
+  "displayName": "töre",
+  "version": "0.15.0",
+  "description": "Continue work from your own local töre notebook in Claude Code: read the topics you opened, and leave proposals in töre's inbox for you to review. The plugin contains no data.",
+  "author": { "name": "the töre authors" },
+  "homepage": "https://ondersamet97.github.io/tore-site/",
+  "repository": "https://github.com/ondersamet97/tore-claude-plugin",
+  "license": "AGPL-3.0-only",
+  "keywords": ["tore", "notebook", "local-first", "mcp", "decisions", "privacy"],
+  "userConfig": {
+    "tore_home": {
+      "type": "string",
+      "title": "töre folder",
+      "description": "Absolute path of your own töre checkout (the folder that contains Başlat.command). Build it once with: bash scripts/build.sh",
+      "required": true
+    },
+    "tore_data": {
+      "type": "string",
+      "title": "Notebook folder (optional)",
+      "description": "Leave empty to use the notebook Başlat.command creates: <töre folder>/.demo-data/runtime",
+      "required": false,
+      "default": ""
+    }
+  }
+}

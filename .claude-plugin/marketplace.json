@@ -1,0 +1,13 @@
+{
+  "name": "tore",
+  "owner": { "name": "the töre authors" },
+  "description": "The töre plugin for Claude Code: continue work from your own local töre notebook.",
+  "plugins": [
+    {
+      "name": "tore",
+      "source": "./",
+      "description": "Continue work from your own local töre notebook in Claude Code. No data is bundled.",
+      "version": "0.15.0"
+    }
+  ]
+}

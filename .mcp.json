@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "tore": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/tore-mcp",
+      "args": [],
+      "env": {
+        "TORE_HOME": "${user_config.tore_home}",
+        "TORE_DATA": "${user_config.tore_data}"
+      }
+    }
+  }
+}

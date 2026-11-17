@@ -1,0 +1,20 @@
+#!/bin/bash
+# Starts the töre MCP server from YOUR OWN töre checkout, over stdio.
+# This plugin bundles no notebook and no data: it only points Claude Code at the
+# töre you installed and the notebook on your computer.
+# Diagnostics go to stderr and never contain notebook content.
+set -euo pipefail
+
+fail() { echo "töre plugin: $1" >&2; exit 1; }
+
+[[ -n "${TORE_HOME:-}" ]] || fail "set the töre folder in the plugin settings (/plugin, then tore, then Configure)."
+home="$(cd "$TORE_HOME" 2>/dev/null && pwd -P)" || fail "the töre folder does not exist."
+bin="$home/server/target/debug/tore-server"
+[[ -x "$bin" ]] || fail "töre is not built yet. In your töre folder run: bash scripts/build.sh"
+
+data="${TORE_DATA:-}"
+[[ -n "$data" ]] || data="$home/.demo-data/runtime"
+[[ -d "$data" ]] || fail "no notebook found yet. Start töre once with Başlat.command, then open a topic to the connected AI tool."
+data="$(cd "$data" && pwd -P)"
+
+exec "$bin" mcp --data "$data"
